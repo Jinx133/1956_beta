@@ -4584,7 +4584,6 @@ focus_tree = {
 		cost = 10
 		prerequisite = {
 			focus = GER_rhineland
-			focus = GER_consolidate_new_reich
 		}
 		relative_position_id = GER_anschluss
 		x = -15
@@ -6551,7 +6550,6 @@ focus_tree = {
 		cost = 5.00
 		prerequisite = {
 			focus = GER_anschluss
-			focus = GER_consolidate_new_reich
 		}
 		mutually_exclusive = {
 			focus = GER_alliance_with_italy
@@ -6768,8 +6766,6 @@ focus_tree = {
 		cost = 7.00
 		prerequisite = {
 			focus = GER_anschluss
-			focus = GER_consolidate_new_reich
-			#focus = GER_anti_comitern_pact	#improves lines
 		}
 		mutually_exclusive = {
 			focus = GER_prepare_italian_invasion
@@ -6806,7 +6802,6 @@ focus_tree = {
 		cost = 5.00
 		prerequisite = {
 			focus = GER_anschluss
-			focus = GER_consolidate_new_reich
 		}
 		x = -10
 		y = 1
@@ -6951,16 +6946,12 @@ focus_tree = {
 		id = GER_poland_trade
 		icon = GFX_goal_DNZ_coat_of_arms
 		cost = 10.00
-		prerequisite = {
-			focus = GER_european_claims #lets give the peaceful some expansion options
-		}
-		mutually_exclusive = {
-			focus = GER_danzig_or_war
-			focus = GER_poland_friend
-		}
+		prerequisite = { focus = GER_european_claims }
 		relative_position_id = GER_european_claims
-		x = 1
+		x = 0
 		y = 2
+		mutually_exclusive = {
+		}
 		ai_will_do = {
 			factor = 2.5
 			modifier = {
@@ -7417,7 +7408,6 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_poland_friend
 			focus = GER_danzig_or_war
-			focus = GER_poland_trade
 		}
 		mutually_exclusive = {
 			focus = GER_second_vienna_award
@@ -7503,7 +7493,6 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_poland_friend
 			focus = GER_danzig_or_war
-			focus = GER_poland_trade
 		}
 		relative_position_id = GER_danzig_or_war
 		mutually_exclusive = {
@@ -7668,7 +7657,6 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_danzig_or_war
 			focus = GER_poland_friend
-			focus = GER_poland_trade
 		}
 		relative_position_id = GER_danzig_or_war
 		mutually_exclusive = {
@@ -9405,7 +9393,6 @@ focus_tree = {
 		icon = GFX_focus_research
 		cost = 10.00
 		prerequisite = {
-			focus = GER_consolidate_new_reich
 			focus = GER_rhineland	#to emphasise it as an outlier among diplomatic focuses
 		}
 		relative_position_id = GER_anschluss
@@ -11157,6 +11144,7 @@ focus_tree = {
 		id = GER_demand_northern_schleswig_r56
 		text = GER_demand_northern_schleswig
 		icon = GFX_goal_generic_position_armies
+		relative_position_id = GER_european_claims
 		prerequisite = {
 			focus = GER_european_claims
 		}
@@ -11170,9 +11158,8 @@ focus_tree = {
 			}
 		}
 		will_lead_to_war_with = DEN
-		x = 0
+		x = -2
 		y = 1
-		relative_position_id = GER_european_claims
 		cost = 7.16
 		ai_will_do = {
 			factor = 10
@@ -11217,16 +11204,10 @@ focus_tree = {
 		}
 		available = {
 			is_subject = no
-			OR = {
-				has_full_control_of_state = 964
-				DEN = {
-					has_full_control_of_state = 964
-				}
-			}
 		}
 		will_lead_to_war_with = DEN
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = GER_demand_northern_schleswig_r56
 		cost = 5
 		ai_will_do = {
@@ -11244,9 +11225,9 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_european_claims
 		}
-		relative_position_id = GER_demand_northern_schleswig_r56
-		x = -1
-		y = 1
+		relative_position_id = GER_european_claims
+		x = 2
+		y = 2
 		ai_will_do = {
 			factor = 10
 		}
@@ -11270,7 +11251,7 @@ focus_tree = {
 			focus = GER_european_claims
 		}
 		relative_position_id = GER_european_claims
-		x = 2
+		x = 1
 		y = 1
 		available = {
 			is_subject = no
@@ -11285,49 +11266,6 @@ focus_tree = {
 			add_state_claim = 777
 		}
 
-	}
-	focus = {
-		id = GER_asian_claims
-		icon = GFX_focus_por_luso_tropicalism
-		cost = 5
-		allow_branch = {
-			NOT = {
-				has_dlc = "Waking the Tiger"
-			}
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = GER_kill_hitler
-					has_completed_focus = GER_denounce_versailles
-				}
-			}
-		}
-		prerequisite = {
-			focus = GER_european_claims
-		}
-		relative_position_id = GER_european_claims
-		x = -2
-		y = 1
-		available = {
-			is_subject = no
-		}
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {
-			add_state_claim = 743
-			add_state_claim = 684
-			add_state_claim = 638
-			add_state_claim = 646
-			add_state_claim = 726
-			add_state_claim = 737
-			add_state_claim = 523
-		}
 	}
 	focus = {
 		id = GER_our_place_in_the_sun_r56
@@ -11349,12 +11287,12 @@ focus_tree = {
 				}
 			}
 		}
+		relative_position_id = GER_african_claims
 		prerequisite = {
-			focus = GER_european_claims
+			focus = GER_african_claims
 		}
-		relative_position_id = GER_european_claims
-		x = -2
-		y = 1
+		x = 0
+		y = 2
 		available = {
 			is_subject = no
 		}
@@ -11395,6 +11333,49 @@ focus_tree = {
 				}
 				JAP = { country_event = { id = wtt_germany.43 days = 1 } }
 			}
+			add_state_claim = 743
+			add_state_claim = 684
+			add_state_claim = 638
+			add_state_claim = 646
+			add_state_claim = 726
+			add_state_claim = 737
+			add_state_claim = 523
+		}
+	}	
+	focus = {
+		id = GER_asian_claims
+		icon = GFX_focus_por_luso_tropicalism
+		cost = 5
+		allow_branch = {
+			NOT = {
+				has_dlc = "Waking the Tiger"
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					has_completed_focus = GER_kill_hitler
+					has_completed_focus = GER_denounce_versailles
+				}
+			}
+		}
+		prerequisite = {
+			focus = GER_european_claims
+		}
+		relative_position_id = GER_european_claims
+		x = -2
+		y = 1
+		available = {
+			is_subject = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
 			add_state_claim = 743
 			add_state_claim = 684
 			add_state_claim = 638
