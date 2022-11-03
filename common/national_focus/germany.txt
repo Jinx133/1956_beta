@@ -852,7 +852,7 @@ focus_tree = {
 			focus = GER_kill_hitler
 			focus = GER_rally_the_monarchists
 		}
-		x = 66
+		x = 70
 		y = 0
 		offset = {
 			x = -19
@@ -6854,7 +6854,6 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = GER_danzig_or_war
-			focus = GER_poland_trade
 		}
 		relative_position_id = GER_anti_comitern_pact
 		x = 0
@@ -7147,7 +7146,6 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = GER_poland_friend
-			focus = GER_poland_trade
 		}
 		relative_position_id = GER_prepare_poland_invasion
 		x = 0
@@ -8059,7 +8057,6 @@ focus_tree = {
 			focus = GER_danzig_or_war
 		}
 		mutually_exclusive = {
-			focus = GER_help_SOV_revolutionaries_r56_2
 		}
 		relative_position_id = GER_danzig_or_war
 		x = 2
@@ -8346,7 +8343,7 @@ focus_tree = {
 			focus = GER_rally_the_monarchists
 		}
 		#relative_position_id = GER_political_sphere
-		x = 88
+		x = 92
 		y = 0
 		offset = {
 			x = -51
@@ -9437,7 +9434,7 @@ focus_tree = {
 			focus = GER_kill_hitler
 			focus = GER_denounce_versailles
 		}
-		x = 38
+		x = 42
 		y = 0
 		#relative_position_id = GER_political_sphere
 		ai_will_do = {
@@ -10027,8 +10024,8 @@ focus_tree = {
 		prerequisite = {
 			focus =  GER_restore_the_central_powers
 		}
-		x = -1
-		y = 1
+		x = 1
+		y = 2
 		cost = 5
 
 		available = {
@@ -10093,7 +10090,7 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_restore_the_central_powers
 		}
-		x = 1
+		x = -1
 		y = 1
 		cost = 5
 		allow_branch = {
@@ -10465,238 +10462,68 @@ focus_tree = {
 		}
 
 	}
-	# focus = {
-	# 	id = GER_draft_new_constitution
-	# 	icon = GFX_goal_generic_forceful_treaty
-	# 	cost = 10.00
-	# 	prerequisite = {
-	# 		focus = GER_consolidate_new_reich
-	# 	}
-	# 	relative_position_id = GER_consolidate_new_reich
-	# 	x = 6
-	# 	y = 1
-	# 	ai_will_do = {
-	# 		factor = 10
-	# 	}
-	# 	completion_reward = {
-	# 		add_timed_idea = {
-	# 			idea = GER_new_german_constitution
-	# 			days = 546
-	# 		}
-	# 	}
-
-	# }
-	# focus = {
-	# 	id = GER_prioritize_infrastructure
-	# 	icon = GFX_goal_generic_construct_infrastructure
-	# 	cost = 10.00
-	# 	prerequisite = {
-	# 		focus = GER_draft_new_constitution
-	# 	}
-	# 	mutually_exclusive = {
-	# 		focus = GER_prioritize_civilian_industry
-	# 		focus = GER_prioritize_military_industry
-	# 		focus = GER_prioritize_defensive_construction
-	# 	}
-	# 	relative_position_id = GER_draft_new_constitution
-	# 	x = -3
-	# 	y = 1
-	# 	ai_will_do = {
-	# 		factor = 10
-	# 	}
-	# 	completion_reward = {
-	# 		add_ideas = GER_prioritize_infrastructure_idea
-	# 	}
-	# 	search_filters = {
-	# 		FOCUS_FILTER_INDUSTRY
-	# 	}
-
-	# }
-	# focus = {
-	# 	id = GER_prioritize_civilian_industry
-	# 	icon = GFX_goal_generic_construct_civ_factory
-	# 	cost = 10.00
-	# 	prerequisite = {
-	# 		focus = GER_draft_new_constitution
-	# 	}
-	# 	mutually_exclusive = {
-	# 		focus = GER_prioritize_infrastructure
-	# 		focus = GER_prioritize_military_industry
-	# 		focus = GER_prioritize_defensive_construction
-	# 	}
-	# 	relative_position_id = GER_draft_new_constitution
-	# 	x = -1
-	# 	y = 1
-	# 	ai_will_do = {
-	# 		factor = 10
-	# 	}
-	# 	completion_reward = {
-	# 		add_ideas = GER_prioritize_civilian_industry_idea
-	# 	}
-	# 	search_filters = {
-	# 		FOCUS_FILTER_INDUSTRY
-	# 	}
-
-	# }
-	# focus = {
-	# 	id = GER_prioritize_military_industry
-	# 	icon = GFX_goal_generic_construct_mil_factory
-	# 	cost = 10.00
-	# 	prerequisite = {
-	# 		focus = GER_draft_new_constitution
-	# 	}
-	# 	mutually_exclusive = {
-	# 		focus = GER_prioritize_infrastructure
-	# 		focus = GER_prioritize_civilian_industry
-	# 		focus = GER_prioritize_defensive_construction
-	# 	}
-	# 	relative_position_id = GER_draft_new_constitution
-	# 	x = 1
-	# 	y = 1
-	# 	ai_will_do = {
-	# 		factor = 10
-	# 	}
-	# 	completion_reward = {
-	# 		add_ideas = GER_prioritize_military_industry_idea
-	# 	}
-	# 	search_filters = {
-	# 		FOCUS_FILTER_INDUSTRY
-	# 	}
-
-	# }
-	# focus = {
-	# 	id = GER_prioritize_defensive_construction
-	# 	icon = GFX_focus_generic_coastal_fort
-	# 	cost = 10.00
-	# 	prerequisite = {
-	# 		focus = GER_draft_new_constitution
-	# 	}
-	# 	mutually_exclusive = {
-	# 		focus = GER_prioritize_infrastructure
-	# 		focus = GER_prioritize_civilian_industry
-	# 		focus = GER_prioritize_military_industry
-	# 	}
-	# 	relative_position_id = GER_draft_new_constitution
-	# 	x = 3
-	# 	y = 1
-	# 	completion_reward = {
-	# 		add_ideas = GER_prioritize_defensive_construction_idea
-	# 	}
-	# 	search_filters = {
-	# 		FOCUS_FILTER_INDUSTRY
-	# 	}
-
-	# }
-	# focus = {
-	# 	id = GER_kaiser_wilhelm_society
-	# 	icon = GFX_goal_research_silver
-	# 	cost = 10.00
-	# 	prerequisite = {
-	# 		focus = GER_prioritize_civilian_industry
-	# 		focus = GER_prioritize_infrastructure
-	# 		focus = GER_prioritize_military_industry
-	# 		focus = GER_prioritize_defensive_construction
-	# 	}
-	# 	relative_position_id = GER_draft_new_constitution
-	# 	x = 0
-	# 	y = 2
-	# 	ai_will_do = {
-	# 		factor = 10
-	# 	}
-	# 	completion_reward = {
-	# 		add_research_slot = 1
-	# 	}
-	# 	search_filters = {
-	# 		FOCUS_FILTER_RESEARCH
-	# 	}
-
-	# }
-	# focus = {
-	# 	id = GER_return_scientists
-	# 	icon = GFX_goal_tfv_generic_tech_sharing
-	# 	cost = 10.00
-	# 	prerequisite = {
-	# 		focus = GER_kaiser_wilhelm_society
-	# 	}
-	# 	relative_position_id = GER_kaiser_wilhelm_society
-	# 	x = 0
-	# 	y = 1
-	# 	ai_will_do = {
-	# 		factor = 10
-	# 	}
-	# 	completion_reward = {
-	# 		add_ideas = GER_return_scientists_idea
-	# 	}
-	# 	search_filters = {
-	# 		FOCUS_FILTER_RESEARCH FOCUS_FILTER_MANPOWER
-	# 	}
-
-	# }
-	# focus = {
-	# 	id = GER_5_factor
-	# 	icon = GFX_focus_generic_cryptologic_bomb
-	# 	cost = 5.00
-	# 	prerequisite = {
-	# 		focus = GER_enigma
-	# 	}
-	# 	x = 0
-	# 	y = 1
-	# 	relative_position_id = GER_enigma
-	# 	available = {
-	# 		date > 1941.1.31
-	# 	}
-	# 	ai_will_do = {
-	# 		factor = 1
-	# 	}
-	# 	completion_reward = {
-	# 		swap_ideas = {
-	# 			add_idea = GER_enigma_machine2
-	# 			remove_idea = GER_enigma_machine1
-	# 		}
-	# 		add_tech_bonus = {
-	# 			name = enigma
-	# 			bonus = 0.5
-	# 			uses = 1
-	# 			category = computing_tech
-	# 		}
-	# 	}
-	# 	search_filters = {
-	# 		FOCUS_FILTER_RESEARCH FOCUS_FILTER_ESPIONAGE
-	# 	}
-	# }
-	# focus = {
-	# 	id = GER_8_factor
-	# 	icon = GFX_focus_generic_cryptologic_bomb
-	# 	cost = 5.00
-	# 	prerequisite = {
-	# 		focus = GER_5_factor
-	# 	}
-	# 	x = 0
-	# 	y = 1
-	# 	relative_position_id = GER_5_factor
-	# 	available = {
-	# 		date > 1942.1.1
-	# 	}
-	# 	ai_will_do = {
-	# 		factor = 1
-	# 	}
-	# 	completion_reward = {
-	# 		swap_ideas = {
-	# 			add_idea = GER_enigma_machine3
-	# 			remove_idea = GER_enigma_machine2
-	# 		}
-	# 		add_tech_bonus = {
-	# 			name = enigma
-	# 			bonus = 1
-	# 			uses = 1
-	# 			category = computing_tech
-	# 		}
-	# 	}
-	# 	search_filters = {
-	# 		FOCUS_FILTER_RESEARCH FOCUS_FILTER_ESPIONAGE
-	# 	}
-	# }
-
+	focus = {
+		id = GER_abolish_austrian_fascism
+		icon = GFX_focus_ger_accept_british_naval_dominance
+		cost = 5.00
+		prerequisite = {
+			focus = GER_restore_the_empire
+		}
+		available = {
+			is_subject = no
+		}
+		relative_position_id = GER_restore_the_empire
+		x = -1
+		y = 3
+		ai_will_do = {
+			factor = 10
+		}
+		bypass = {
+			NOT = { country_exists = AUS }
+		}
+		completion_reward = {
+			AUS = {
+				add_timed_idea = {
+					idea = GER_rally_the_monarchists_idea
+					days = 365
+				}
+			}
+		}
+		search_filters = {
+			#
+		}
+	}
+	focus = {
+		id = GER_south_german_consolidation
+		icon = GFX_focus_ger_accept_british_naval_dominance
+		cost = 5.00
+		prerequisite = {
+			focus = GER_abolish_austrian_fascism
+		}
+		available = {
+			is_subject = no
+		}
+		relative_position_id = GER_abolish_austrian_fascism
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		bypass = {
+			NOT = { country_exists = AUS }
+		}
+		completion_reward = {
+			AUS = {
+				add_timed_idea = {
+					idea = GER_rally_the_monarchists_idea
+					days = 365
+				}
+			}
+		}
+		search_filters = {
+			#
+		}
+	}
 	focus = {
 		id = GER_finland_friend
 		icon = GFX_goal_generic_befriend_finland
