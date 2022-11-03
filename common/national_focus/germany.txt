@@ -9724,7 +9724,7 @@ focus_tree = {
 			is_subject = no
 			NOT = { has_war_with = ITA }
 		}
-		x = 0
+		x = -2
 		y = 2
 		relative_position_id = GER_restore_the_central_powers
 		cost = 10
@@ -10024,7 +10024,10 @@ focus_tree = {
 		prerequisite = {
 			focus =  GER_restore_the_central_powers
 		}
-		x = 1
+		mutually_exclusive = {
+			focus = GER_abolish_austrian_fascism
+		}
+		x = 0
 		y = 2
 		cost = 5
 
@@ -10469,6 +10472,9 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_restore_the_empire
 		}
+		mutually_exclusive = {
+			focus = GER_alliance_with_austria_hungary
+		}
 		available = {
 			is_subject = no
 		}
@@ -10504,7 +10510,7 @@ focus_tree = {
 			is_subject = no
 		}
 		relative_position_id = GER_abolish_austrian_fascism
-		x = 0
+		x = -1
 		y = 1
 		ai_will_do = {
 			factor = 10
