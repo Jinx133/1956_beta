@@ -10025,7 +10025,7 @@ focus_tree = {
 			focus =  GER_restore_the_central_powers
 		}
 		mutually_exclusive = {
-			focus = GER_abolish_austrian_fascism
+			focus = GER_guide_austria
 		}
 		x = 0
 		y = 2
@@ -10493,7 +10493,7 @@ focus_tree = {
 					idea = GER_rally_the_monarchists_idea
 					days = 365
 				}
-				country_event = ger.south_ger.1
+				country_event = { id = ger.south_ger.1 hours = 6 }
 			}
 			add_threat = 3
 		}
@@ -10512,23 +10512,201 @@ focus_tree = {
 			is_subject = no
 		}
 		relative_position_id = GER_guide_austria
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			ITA = {
+				country_event = { id = ger.south_ger.2 hours = 6 }
+			}
+		}
+		search_filters = {
+			#
+		}
+	}
+	focus = {
+		id = GER_adriatic_sea_access
+		icon = GFX_focus_ger_accept_british_naval_dominance
+		cost = 5.00
+		prerequisite = {
+			focus = GER_restore_tyrol
+		}
+		available = {
+			is_subject = no
+		}
+		relative_position_id = GER_restore_tyrol
 		x = 1
 		y = 1
 		ai_will_do = {
 			factor = 10
 		}
 		bypass = {
-			NOT = { country_exists = AUS }
+			852 = { controls_or_subject_of = yes }
+			736 = { controls_or_subject_of = yes }
+			912 = { controls_or_subject_of = yes }
 		}
 		completion_reward = {
-			ITA = {
-				country_event = { id = ger.south_ger.2 }
+			create_wargoal = {
+				target = ITA
+				type = puppet_wargoal_focus
 			}
 		}
 		search_filters = {
 			#
 		}
-	}	
+	}
+	focus = {
+		id = GER_old_austrian_lands
+		icon = GFX_focus_ger_accept_british_naval_dominance
+		cost = 5.00
+		prerequisite = {
+			focus = GER_adriatic_sea_access
+		}
+		available = {
+			is_subject = no
+		}
+		relative_position_id = GER_adriatic_sea_access
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			hidden_effect = {
+				if = {
+					limit = {
+						AUS = { is_subject_of = GER }  
+					}			
+					853 = {
+						add_claim_by = AUS
+					}
+					102 = {
+						add_claim_by = AUS
+					}
+					956 = {
+						add_claim_by = AUS
+					}
+					109 = {
+						add_claim_by = AUS
+					}
+					958 = {
+						add_claim_by = AUS
+					}
+					103 = {
+						add_claim_by = AUS
+					}
+				}
+				else = {
+					853 = {
+						add_claim_by = GER
+					}
+					102 = {
+						add_claim_by = GER
+					}
+					956 = {
+						add_claim_by = GER
+					}
+					109 = {
+						add_claim_by = GER
+					}
+					958 = {
+						add_claim_by = GER
+					}
+					103 = {
+						add_claim_by = GER
+					}				
+				}
+			}
+			custom_effect_tooltip = ger_yugoslav_coast.tt
+		}
+		search_filters = {
+			#
+		}
+	}
+	focus = {
+		id = GER_prepare_swiss_demands
+		icon = GFX_focus_ger_accept_british_naval_dominance
+		cost = 5.00
+		prerequisite = {
+			focus = GER_restore_tyrol
+		}
+		available = {
+			is_subject = no
+		}
+		relative_position_id = GER_restore_tyrol
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		bypass = {
+			NOT = {
+				country_exists = SWI
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					FRA = {
+						NOT = {
+							OR = {
+								has_government = democratic
+								has_government = communism
+							}
+						}
+					}
+				}
+				FRA = { country_event = { id = ger.south_ger.3 hours = 6 } }
+			}
+			if = {
+				limit = {
+					ITA = {
+						NOT = {
+							OR = {
+								has_government = democratic
+								has_government = communism
+							}
+						}
+					}
+				}
+				ITA = { country_event = { id = ger.south_ger.3 hours = 18 } }
+			}			
+		}
+		search_filters = {
+			#
+		}
+	}
+	focus = {
+		id = GER_divide_swiss
+		icon = GFX_focus_ger_accept_british_naval_dominance
+		cost = 5.00
+		prerequisite = {
+			focus = GER_prepare_swiss_demands
+		}
+		available = {
+			is_subject = no
+		}
+		relative_position_id = GER_prepare_swiss_demands
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		bypass = {
+			NOT = {
+				country_exists = SWI
+			}
+		}
+		completion_reward = {
+			SWI = { country_event = { id = ger.south_ger.4 hours = 6 } }			
+		}
+		search_filters = {
+			#
+		}
+	}					
 	focus = {
 		id = GER_finland_friend
 		icon = GFX_goal_generic_befriend_finland

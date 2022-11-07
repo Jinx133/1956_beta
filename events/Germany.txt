@@ -14027,7 +14027,7 @@ country_event = { #Guide Austria
 				factor = 2
 				has_opinion = {
 					target = FROM
-					value = > 65
+					value  > 65
 				}
 			}
 			modifier = {
@@ -14054,7 +14054,7 @@ country_event = { #Guide Austria
 				factor = 2
 				has_opinion = {
 					target = FROM
-					value = < 0
+					value < 1
 				}
 			}
 			modifier = {
@@ -14180,7 +14180,7 @@ country_event = { #Restore Tyrol
 				factor = 2
 				has_opinion = {
 					target = FROM
-					value = > 65
+					value > 65
 				}
 			}
 			modifier = {
@@ -14201,7 +14201,7 @@ country_event = { #Restore Tyrol
 				factor = 2
 				has_opinion = {
 					target = FROM
-					value = < 0
+					value < 1
 				}
 			}
 		}
@@ -14223,17 +14223,28 @@ country_event = { #Restore Tyrol - Yes
 		ai_chance = { 
 			factor = 10			
 		}
-		limit = {
-			if = {
-				AUS = {
-					is_subject_of = GER
-				}
+		if = {
+			limit = {
+				AUS = { is_subject_of = GER }  
 			}
-			AUS = { transfer_state = 39 }
+			AUS = {
+				transfer_state = 39
+				transfer_state = 850
+			}
+			39 = {
+				add_core_of = AUS
+			}
+			850 = {
+				add_core_of = AUS
+			}
 		}
 		else = {
-			GER = { transfer_state = 39 }
-		}
+			GER = { 
+				transfer_state = 39 
+				transfer_state = 850
+			} 
+		}				
+		
 		add_threat = -1				
 	}
 }
@@ -14277,7 +14288,7 @@ country_event = { #Restore Tyrol - No
 	option = { #Understandable, have a great day.
 		name = ger.south_ger.22.b
 		ai_chance = { 
-			factor = 3
+			factor = 0
 			modifier = {
 				factor = 3
 				FROM = {
@@ -14295,5 +14306,252 @@ country_event = { #Restore Tyrol - No
 			}			
 		}
 		add_threat = -3
+	}	
+}
+country_event = { #Deal with the Swiss
+	id = ger.south_ger.3
+	title = ger.south_ger.3.t
+	desc = ger.south_ger.3.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = { #Yes
+		name = ger.south_ger.3.a
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 2
+				has_opinion = { 
+					target = FROM 
+					value > 50
+				}				
+			}
+			modifier = {
+				add = 4
+				SWI = {
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
+				}
+			}			
+		}
+		FROM = { country_event = { id = ger.south_ger.31 } }
+		ROOT = {
+			set_country_flag = agree_divide_swiss
+		}
+	}
+	option = { #No
+		name = ger.south_ger.3.b
+		ai_chance = { 
+			factor = 4 
+			modifier = {
+				factor = 2
+				has_opinion = {
+					target = FROM
+					value < 1
+				}
+			}
+			modifier = {
+				factor = 4
+				is_in_faction_with = SWI
+			}
+		}
+		FROM = { country_event = { id = ger.south_ger.32 } }
+	}
+}
+country_event = { #Divide Swiss - Yes
+	id = ger.south_ger.31
+	title = ger.south_ger.31.t
+	desc = ger.south_ger.31.d
+	picture = GFX_report_event_generic_sign_treaty2 
+
+	is_triggered_only = yes
+
+	option = { #Yes
+		name = ger.south_ger.31.a
+		ai_chance = { 
+			factor = 10			
+		}			
+	}
+}
+country_event = { #Divide Swiss - No
+	id = ger.south_ger.32
+	title = ger.south_ger.32.t
+	desc = ger.south_ger.32.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = { #More Switzerland to us
+		name = ger.south_ger.32.a
+		ai_chance = { 
+			factor = 10			
+		}
+	}	
+}
+country_event = { #Guide Austria
+	id = ger.south_ger.4
+	title = ger.south_ger.4.t
+	desc = ger.south_ger.4.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Yes
+		name = ger.south_ger.4.a
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 2
+				all_neighbor_country = {
+					NOT = {
+						has_government = democratic
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				ITA = {
+					has_country_flag = agree_divide_swiss
+				}				
+			}
+			modifier = {
+				factor = 2
+				FRA = {
+					has_country_flag = agree_divide_swiss
+				}				
+			}			
+		}
+		FROM = { country_event = { id = ger.south_ger.41 } }
+	}
+	option = { #No
+		name = ger.south_ger.4.b
+		ai_chance = { 
+			factor = 4
+			modifier = {
+				factor = 2
+				has_opinion = {
+					target = FROM
+					value < 1
+				}
+			}
+			modifier = {
+				factor = 2
+				is_in_faction_with = ITA
+			}
+			modifier = {
+				factor = 2
+				is_in_faction_with = FRA
+			}
+		}
+		FROM = { country_event = { id = ger.south_ger.42 } }
+	}
+}
+country_event = { #Divide Swiss - Yes
+	id = ger.south_ger.41
+	title = ger.south_ger.41.t
+	desc = ger.south_ger.41.d
+	picture = GFX_report_event_generic_sign_treaty2 
+
+	is_triggered_only = yes
+
+	option = { #Yes
+		name = ger.south_ger.41.a
+		ai_chance = { 
+			factor = 10			
+		}
+		if = {
+			limit = {
+				FRA = {
+					has_country_flag = agree_divide_swiss
+				}
+			}
+			FRA = {
+				transfer_state = 845
+			}
+			845 = {
+				add_core_of = FRA
+			}			
+		}
+		if = {
+			limit = {
+				FRA = {
+					NOT = { has_country_flag = agree_divide_swiss }
+				}
+			}
+			GER = {
+				transfer_state = 845
+			}
+		}
+		if = {
+			limit = {
+				ITA = {
+					has_country_flag = agree_divide_swiss
+				}
+			}
+			ITA = {
+				transfer_state = 846
+				transfer_state = 847				
+			}
+			846 = {
+				add_core_of = ITA
+			}					
+		}		
+		if = {
+			limit = {
+				ITA = {
+					NOT = { has_country_flag = agree_divide_swiss }
+				}
+			}
+			GER = {
+				transfer_state = 846
+				transfer_state = 847
+			}
+		}
+		if = {
+			limit = {
+				AUS = { is_subject_of = GER }  
+			}
+			AUS = {
+				transfer_state = 997
+			}
+			997 = {
+				add_core_of = AUS
+			}
+		}
+		else = {
+			GER = { 
+				transfer_state = 997 
+			} 
+		}		
+		GER = {
+			transfer_state = 3
+				transfer_state = 151
+		}
+		151 = {
+			add_core_of = GER
+		}
+		3 = {
+			add_core_of = GER
+		}					
+	}
+}
+country_event = { #Divide Swiss - No
+	id = ger.south_ger.42
+	title = ger.south_ger.42.t
+	desc = ger.south_ger.42.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = { #More Switzerland to us
+		name = ger.south_ger.42.a
+		ai_chance = { 
+			factor = 10			
+		}
 	}	
 }
