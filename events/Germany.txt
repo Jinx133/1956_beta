@@ -14548,10 +14548,191 @@ country_event = { #Divide Swiss - No
 
 	is_triggered_only = yes
 
-	option = { #More Switzerland to us
+	option = { #We take anyway.
 		name = ger.south_ger.42.a
 		ai_chance = { 
 			factor = 10			
+		}
+		create_wargoal = {
+			target = SWI
+			type = annex_everything
+		}
+	}	
+}
+country_event = { #Adriatic Sea Access
+	id = ger.south_ger.5
+	title = ger.south_ger.5.t
+	desc = ger.south_ger.5.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Yes
+		name = ger.south_ger.5.a
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 2
+				has_opinion = {
+					target = FROM
+					value > 50
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = { 
+					tag = FROM 
+					ratio < 0.5
+				}
+			}
+		}
+		effect_tooltip = {
+			if = {
+				limit = {
+					AUS = { is_subject_of = GER }  
+				}
+				AUS = {
+					transfer_state = 912
+					transfer_state = 736
+					transfer_state = 852
+					transfer_state = 163				
+				}
+				912 = {
+					add_core_of = AUS
+				}
+				736 = {
+					add_core_of = AUS
+				}
+				852 = {
+					add_core_of = AUS
+				}			
+			}
+			else = {
+				GER = { 
+					transfer_state = 912
+					transfer_state = 736
+					transfer_state = 852
+					transfer_state = 163
+				} 
+			}
+			735 = {
+				add_claim_by = ITA 
+			}
+			32 = {
+				add_claim_by = ITA 
+			}
+			21 = {
+				add_claim_by = ITA 
+			}
+			851 = {
+				add_claim_by = ITA 
+			}
+			1 = {
+				add_claim_by = ITA 
+				add_core_of = ITA
+			}						
+		}
+		FROM = { country_event = { id = ger.south_ger.51 } }
+	}
+	option = { #No
+		name = ger.south_ger.5.b
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 2
+				has_opinion = {
+					target = FROM
+					value < 10
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = { 
+					tag = FROM 
+					ratio > 0.5
+				}
+			}
+		}
+		FROM = { country_event = { id = ger.south_ger.52 } }
+	}
+}
+country_event = { #Adriatic Sea Access - Yes
+	id = ger.south_ger.51
+	title = ger.south_ger.51.t
+	desc = ger.south_ger.51.d
+	picture = GFX_report_event_generic_sign_treaty2 
+
+	is_triggered_only = yes
+
+	option = { #Yes
+		name = ger.south_ger.51.a
+		ai_chance = { 
+			factor = 10			
+		}
+		if = {
+			limit = {
+				AUS = { is_subject_of = ROOT }  
+			}
+			AUS = {
+				transfer_state = 912
+				transfer_state = 736
+				transfer_state = 852
+				transfer_state = 163				
+			}
+			912 = {
+				add_core_of = AUS
+			}
+			736 = {
+				add_core_of = AUS
+			}
+			852 = {
+				add_core_of = AUS
+			}			
+		}
+		else = {
+			GER = { 
+				transfer_state = 912
+				transfer_state = 736
+				transfer_state = 852
+				transfer_state = 163
+			} 
+		}
+		735 = {
+			add_claim_by = ITA 
+		}
+		32 = {
+			add_claim_by = ITA 
+		}
+		21 = {
+			add_claim_by = ITA 
+		}
+		851 = {
+			add_claim_by = ITA 
+		}
+		1 = {
+			add_claim_by = ITA 
+			add_core_of = ITA
+		}																		
+	}
+}
+country_event = { #Adriatic Sea Access - No
+	id = ger.south_ger.52
+	title = ger.south_ger.52.t
+	desc = ger.south_ger.52.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = { #We take anyway.
+		name = ger.south_ger.52.a
+		ai_chance = { 
+			factor = 10			
+		}
+		create_wargoal = {
+			target = ITA
+			type = puppet_wargoal_focus
 		}
 	}	
 }

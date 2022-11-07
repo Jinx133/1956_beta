@@ -10467,7 +10467,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_guide_austria
-		icon = GFX_focus_ger_accept_british_naval_dominance
+		icon = GFX_goal_AUS_defence_of_the_fatherland
 		cost = 5.00
 		prerequisite = {
 			focus = GER_restore_the_empire
@@ -10503,7 +10503,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_restore_tyrol
-		icon = GFX_focus_ger_accept_british_naval_dominance
+		icon = GFX_goal_AUS_demand_sudtirol
 		cost = 5.00
 		prerequisite = {
 			focus = GER_guide_austria
@@ -10528,7 +10528,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_adriatic_sea_access
-		icon = GFX_focus_ger_accept_british_naval_dominance
+		icon = GFX_focus_generic_adriatic_sea_focus
 		cost = 5.00
 		prerequisite = {
 			focus = GER_restore_tyrol
@@ -10548,9 +10548,8 @@ focus_tree = {
 			912 = { controls_or_subject_of = yes }
 		}
 		completion_reward = {
-			create_wargoal = {
-				target = ITA
-				type = puppet_wargoal_focus
+			ITA = {
+				country_event = { id = ger.south_ger.5 hours = 12 }
 			}
 		}
 		search_filters = {
@@ -10559,7 +10558,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_old_austrian_lands
-		icon = GFX_focus_ger_accept_british_naval_dominance
+		icon = GFX_goal_BUL_divide_yugoslavia
 		cost = 5.00
 		prerequisite = {
 			focus = GER_adriatic_sea_access
@@ -10620,7 +10619,15 @@ focus_tree = {
 					}				
 				}
 			}
-			custom_effect_tooltip = ger_yugoslav_coast.tt
+			if = {
+				limit = {
+					AUS = { is_subject_of = GER }
+				}
+				custom_effect_tooltip = ger_yugoslav_coast_aus_tt
+			}
+			else = {
+				custom_effect_tooltip = ger_yugoslav_coast_tt
+			}
 		}
 		search_filters = {
 			#
@@ -10628,7 +10635,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_prepare_swiss_demands
-		icon = GFX_focus_ger_accept_british_naval_dominance
+		icon = GFX_goal_generic_bills
 		cost = 5.00
 		prerequisite = {
 			focus = GER_restore_tyrol
@@ -10680,8 +10687,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = GER_divide_swiss
-		icon = GFX_focus_ger_accept_british_naval_dominance
+		id = GER_divide_the_swiss
+		icon = GFX_focus_SWI_swiss_guiding_principles
 		cost = 5.00
 		prerequisite = {
 			focus = GER_prepare_swiss_demands
