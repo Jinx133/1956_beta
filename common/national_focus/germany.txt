@@ -10463,7 +10463,7 @@ focus_tree = {
 
 	}
 	focus = {
-		id = GER_abolish_austrian_fascism
+		id = GER_guide_austria
 		icon = GFX_focus_ger_accept_british_naval_dominance
 		cost = 5.00
 		prerequisite = {
@@ -10487,24 +10487,26 @@ focus_tree = {
 					idea = GER_rally_the_monarchists_idea
 					days = 365
 				}
+				country_event = ger.south_ger.1
 			}
+			add_threat = 3
 		}
 		search_filters = {
 			#
 		}
 	}
 	focus = {
-		id = GER_south_german_consolidation
+		id = GER_restore_tyrol
 		icon = GFX_focus_ger_accept_british_naval_dominance
 		cost = 5.00
 		prerequisite = {
-			focus = GER_abolish_austrian_fascism
+			focus = GER_guide_austria
 		}
 		available = {
 			is_subject = no
 		}
-		relative_position_id = GER_abolish_austrian_fascism
-		x = 0
+		relative_position_id = GER_guide_austria
+		x = 1
 		y = 1
 		ai_will_do = {
 			factor = 10
@@ -10513,17 +10515,14 @@ focus_tree = {
 			NOT = { country_exists = AUS }
 		}
 		completion_reward = {
-			AUS = {
-				add_timed_idea = {
-					idea = GER_rally_the_monarchists_idea
-					days = 365
-				}
+			ITA = {
+				country_event = { id = ger.south_ger.2 }
 			}
 		}
 		search_filters = {
 			#
 		}
-	}
+	}	
 	focus = {
 		id = GER_finland_friend
 		icon = GFX_goal_generic_befriend_finland

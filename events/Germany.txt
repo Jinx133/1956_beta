@@ -14004,3 +14004,296 @@ country_event = { #Commie German
 		}
 	}
 }
+
+### South German Events
+
+add_namespace = ger.south_ger
+
+country_event = { #Guide Austria
+	id = ger.south_ger.1
+	title = ger.south_ger.1.t
+	desc = ger.south_ger.1.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Yes
+		name = ger.south_ger.1.a
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 2
+				has_opinion = {
+					target = FROM
+					value = > 65
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = { 
+					tag = FROM 
+					ratio < 0.5
+				}				
+			}
+			modifier = {
+				add = 3
+				HUN = {
+					has_completed_focus = HUN_invite_the_habsburg_prince
+				}
+			}			
+		}
+		FROM = { country_event = { id = ger.south_ger.11 } }
+	}
+	option = { #No
+		name = ger.south_ger.1.b
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 2
+				has_opinion = {
+					target = FROM
+					value = < 0
+				}
+			}
+			modifier = {
+				factor = 2
+				is_in_faction_with = ITA
+			}
+			modifier = {
+				factor = 2
+				has_completed_focus = AUS_reinstate_the_habsburg_family
+			}
+		}
+		FROM = { country_event = { id = ger.south_ger.12 } }
+	}
+}
+country_event = { #Guide Austria - Yes
+	id = ger.south_ger.11
+	title = ger.south_ger.11.t
+	desc = ger.south_ger.11.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Yes
+		name = ger.south_ger.11.a
+		ai_chance = { 
+			factor = 10			
+		}
+		ROOT = {
+			puppet = {
+				target = FROM
+			}
+		}
+		add_threat = -1		
+	}
+}
+country_event = { #Guide Austria - No
+	id = ger.south_ger.12
+	title = ger.south_ger.12.t
+	desc = ger.south_ger.12.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #We weren't asking
+		name = ger.south_ger.12.a
+		ai_chance = { 
+			factor = 3
+			modifier = {
+				factor = 3
+				FROM = {
+					OR = {
+						has_government = fascism
+						has_government = communism
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					is_in_faction = no
+				}
+			}			
+		}
+		ROOT = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = FROM
+			}
+		}
+	}
+	option = { #Understandable, have a great day.
+		name = ger.south_ger.12.b
+		ai_chance = { 
+			factor = 3
+			modifier = {
+				factor = 3
+				FROM = {
+					OR = { 
+						has_government = neutrality 
+						has_government = democratic
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					is_in_faction = yes
+				}
+			}
+			modifier = {
+				factor = 3
+				FROM = {
+					is_in_faction_with = ITA
+				}
+				strength_ratio = { 
+					tag = ITA 
+					ratio < 0.5
+				}				
+			}			
+		}
+		add_threat = -3		
+	}	
+}
+country_event = { #Restore Tyrol
+	id = ger.south_ger.2
+	title = ger.south_ger.2.t
+	desc = ger.south_ger.2.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Yes
+		name = ger.south_ger.2.a
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 2
+				has_opinion = {
+					target = FROM
+					value = > 65
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = { 
+					tag = FROM 
+					ratio < 0.5
+				}				
+			}			
+		}
+		FROM = { country_event = { id = ger.south_ger.21 } }
+	}
+	option = { #No
+		name = ger.south_ger.2.b
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 2
+				has_opinion = {
+					target = FROM
+					value = < 0
+				}
+			}
+		}
+		FROM = { country_event = { id = ger.south_ger.22 } }
+	}
+}
+country_event = { #Restore Tyrol - Yes
+	id = ger.south_ger.21
+	title = ger.south_ger.21.t
+	desc = ger.south_ger.21.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Yes
+		name = ger.south_ger.21.a
+		ai_chance = { 
+			factor = 10			
+		}
+		limit = {
+			if = {
+				AUS = {
+					is_subject_of = GER
+				}
+			}
+			AUS = { transfer_state = 39 }
+		}
+		else = {
+			GER = { transfer_state = 39 }
+		}
+		add_threat = -1				
+	}
+}
+country_event = { #Restore Tyrol - No
+	id = ger.south_ger.22
+	title = ger.south_ger.22.t
+	desc = ger.south_ger.22.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #We weren't asking
+		name = ger.south_ger.22.a
+		ai_chance = { 
+			factor = 3
+			modifier = {
+				factor = 3
+				FROM = {
+					OR = {
+						has_government = fascism
+						has_government = communism
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					is_in_faction = no
+				}
+			}			
+		}
+		ROOT = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = FROM
+			}
+		}
+	}
+	option = { #Understandable, have a great day.
+		name = ger.south_ger.22.b
+		ai_chance = { 
+			factor = 3
+			modifier = {
+				factor = 3
+				FROM = {
+					OR = { 
+						has_government = neutrality 
+						has_government = democratic
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					is_in_faction = yes
+				}
+			}			
+		}
+		add_threat = -3
+	}	
+}
