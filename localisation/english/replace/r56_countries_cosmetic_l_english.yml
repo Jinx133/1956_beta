@@ -2164,6 +2164,19 @@
  MON_ONE_UNION_communism_DEF:0 "the Soviet Unitary State"
  MON_ONE_UNION_communism_ADJ:0 "Soviet"
 
+ ### Kingdom of Bosnians, Macedonians and Serbs
+ YUG_KING_BMS_neutrality:0 "Kingdom of Bosnians, Macedonians and Serbs" 
+ YUG_KING_BMS_neutrality_DEF:0 "the Kingdom of Bosnians, Macedonians and Serbs"
+ YUG_KING_BMS_neutrality_ADJ:0 "Yugoslav"
+
+ YUG_KING_BMS_fascism:0 "Greater Serbia"
+ YUG_KING_BMS_fascism_DEF:0 "Greater Serbia"
+ YUG_KING_BMS_fascism_ADJ:0 "Chetnik"
+ 
+ YUG_KING_BMS_democratic:0 "Confederation of Bosnian, Macedonian and Serbian States"
+ YUG_KING_BMS_democratic_DEF:0 "the Confederation of Bosnian, Macedonian and Serbian States"
+ YUG_KING_BMS_democratic_ADJ:0 "Yugoslav"
+
  #MON_CHI
  MON_CHI_neutrality:0 "Provisional Government of Khalkha"
  MON_CHI_neutrality_DEF:0 "the Provisional Government of Khalkha"

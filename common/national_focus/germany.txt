@@ -10628,6 +10628,9 @@ focus_tree = {
 			else = {
 				custom_effect_tooltip = ger_yugoslav_coast_tt
 			}
+			YUG = {
+				country_event = { id = ger.south_ger.6 hours = 12 }
+			}
 		}
 		search_filters = {
 			#
@@ -10713,7 +10716,35 @@ focus_tree = {
 		search_filters = {
 			#
 		}
-	}					
+	}
+	focus = {
+		id = GER_assert_control_over_balkans
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 5.00
+		prerequisite = {
+			focus = GER_old_austrian_lands
+		}
+		available = {
+			is_subject = no
+		}
+		relative_position_id = GER_old_austrian_lands
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		bypass = {
+			NOT = {
+				country_exists = SWI
+			}
+		}
+		completion_reward = {
+			YUG = { country_event = { id = ger.south_ger.7 hours = 6 } }			
+		}
+		search_filters = {
+			#
+		}
+	}						
 	focus = {
 		id = GER_finland_friend
 		icon = GFX_goal_generic_befriend_finland
