@@ -15003,7 +15003,7 @@ country_event = { #Control over Balkanks - Yes
 			factor = 10			
 		}
 		YUG = {
-			set_cosmetic_tag = YUG_KING_BMS_neutrality
+			set_cosmetic_tag = YUG_KING_BMS
 		}
 		GER = {
 			puppet = {
