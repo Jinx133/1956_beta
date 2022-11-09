@@ -9724,8 +9724,8 @@ focus_tree = {
 			is_subject = no
 			NOT = { has_war_with = ITA }
 		}
-		x = -2
-		y = 2
+		x = -1
+		y = 1
 		relative_position_id = GER_restore_the_central_powers
 		cost = 10
 		ai_will_do = {
@@ -9763,7 +9763,7 @@ focus_tree = {
 		}
 
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = GER_prepare_italian_coup_r56
 		cost = 10
 		ai_will_do = {
@@ -10093,7 +10093,7 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_restore_the_central_powers
 		}
-		x = -1
+		x = 1
 		y = 1
 		cost = 5
 		allow_branch = {
