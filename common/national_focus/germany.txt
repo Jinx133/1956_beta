@@ -11175,7 +11175,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-
+			DEN = { country_event = { id = ger.north_ger.1 } }
 		}
 	}	
 	focus = {

@@ -15031,3 +15031,119 @@ country_event = { #Control over Balkanks - No
 		}
 	}	
 }
+
+add_namespace = ger.north_ger
+
+country_event = { #Danish Protectorate
+	id = ger.north_ger.1
+	title = ger.north_ger.1.t
+	desc = ger.north_ger.1.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Yes
+		name = ger.north_ger.1.a
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 2
+				has_opinion = {
+					target = FROM
+					value > 80
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = { 
+					tag = FROM 
+					ratio < 0.4
+				}
+			}
+			modifier = {
+				factor = 2
+				is_in_faction = no
+			}							
+		}
+		effect_tooltip = {
+			GER = {
+				puppet = {
+					target = DEN
+				}
+			}					
+		}
+		FROM = { country_event = { id = ger.north_ger.11 } }
+	}
+	option = { #No
+		name = ger.north_ger.1.b
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 2
+				has_opinion = {
+					target = FROM
+					value < 10
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = { 
+					tag = FROM 
+					ratio > 0.5
+				}
+			}
+			modifier = {
+				factor = 0
+				is_subject_of = GER
+			}	
+			modifier = {
+				factor = 4
+				any_other_country = {
+					has_guaranteed = DEN
+				}				
+			}		
+		}
+		FROM = { country_event = { id = ger.north_ger.12 } }
+	}
+}
+country_event = { #Danish Protectorate - Yes
+	id = ger.north_ger.11
+	title = ger.north_ger.11.t
+	desc = ger.north_ger.11.d
+	picture = GFX_report_event_generic_sign_treaty2 
+
+	is_triggered_only = yes
+
+	option = { #Yes
+		name = ger.north_ger.11.a
+		ai_chance = { 
+			factor = 10			
+		}
+		GER = {
+			puppet = {
+				target = DEN 
+			}
+		}																						
+	}
+}
+country_event = { #Danish Protectorate - No
+	id =ger.north_ger.12
+	title = ger.north_ger.12.t
+	desc = ger.north_ger.12.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = { #We take anyway.
+		name = ger.south_ger.72.a
+		ai_chance = { 
+			factor = 10			
+		}
+		create_wargoal = {
+			target = DEN
+			type = puppet_wargoal_focus
+		}
+	}	
+}
