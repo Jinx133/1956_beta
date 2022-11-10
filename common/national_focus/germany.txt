@@ -8253,67 +8253,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = GER_help_SOV_revolutionaries_r56_2 #other is democratic side
-		text = GER_help_SOV_revolutionaries
-		icon = GFX_goal_anti_comintern_pact
-		prerequisite = { focus = GER_restore_the_empire }
-		mutually_exclusive = {
-		}
-		available = {
-			is_subject = no
-			is_faction_leader = yes
-			custom_trigger_tooltip = {
-				tooltip = intervene_soviet_civil_war_tt		
-				any_country = {
-					original_tag = SOV
-					NOT = {
-						tag = SOV
-					}
-					has_civil_war = yes
-					has_government = communism
-				}
-				SOV = {
-					NOT = {
-						has_government = communism
-						has_war_with = GER
-						is_in_faction_with = GER
-					}
-				}
-			}
-		}
-		bypass = {
-			has_war_together_with = SOV
-			SOV = {
-				has_civil_war = yes
-			}
-		}
-		relative_position_id = GER_european_claims
-		x = 3
-		y = 0
-		cost = 6
-		ai_will_do = {
-			factor = 1
-		}
-		
-		completion_reward = {
-			add_to_faction = SOV
-			add_to_war = { 
-				targeted_alliance = SOV
-				enemy = SOS
-			}
-			if = {
-				limit = {
-					FRA = { has_government = communism }
-				}
-				add_ai_strategy = {
-					type = antagonize
-					id = "GER"
-					value = 200
-				}
-			}
-		}
-	}
-	focus = {
 		id = GER_kill_hitler
 		icon = GFX_goal_ger_kill_hitler
 		cost = 10.00
@@ -9744,7 +9683,6 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = GER_assassinate_mussolini_r56
 		text = GER_assassinate_mussolini
@@ -9803,32 +9741,6 @@ focus_tree = {
 			}
 		}
 	}
-	# focus = {
-	# 	id = GER_mon_peaceful
-	# 	icon = GFX_goal_constitution
-	# 	cost = 5.00
-	# 	prerequisite = {
-	# 		focus = GER_consolidate_new_reich
-	# 	}
-	# 	mutually_exclusive = {
-	# 		focus = GER_restore_the_empire
-	# 	}
-	# 	available = {
-	# 		is_subject = no
-	# 	}
-	# 	relative_position_id = GER_consolidate_new_reich
-	# 	x = -13
-	# 	y = 1
-	# 	ai_will_do = {
-	# 		factor = 10
-	# 	}
-	# 	completion_reward = {
-	# 		#
-	# 	}
-	# 	search_filters = {
-	# 		#
-	# 	}
-	# }
 	focus = {
 		id = GER_mon_FRA_alliance
 		icon = GFX_goal_FRA_legitimists
