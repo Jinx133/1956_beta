@@ -714,6 +714,9 @@ GER_venezuela_friend_desc:0 "The [VEN.GetADjective]s have already shown sympathy
  GER_danish_protectorate:0 "Danish Protectorate"
  GER_danish_protectorate_desc:0 "The Danish are proving to be a lot weaker than we had anticipated, their armies are long left behind and the morale of their troops is in the gutter. If we step in, we can give the Danish a chance at survival into the next century."
 
+
+
+
  #Tooltips (mostly monarchist)
  ger_yugoslav_coast_aus_tt:0 "§YAustria§! gains §Yclaims§! on the §YYugoslav Coastline§!"
  ger_yugoslav_coast_tt:0 "Gain §Yclaims§! on the §YYugoslav Coastline§!"
@@ -723,6 +726,7 @@ GER_venezuela_friend_desc:0 "The [VEN.GetADjective]s have already shown sympathy
  fascist_neutrality_alliance_tt:0 "European §YFascist§! and §YNon-Aligned§! countries will become less hesitant to join [Root.GetNameDef]'s democratic alliance."
  GER_rhineland_decision_tt:0 "§RIf France becomes communist or our ally, we won't generate world tension.§!"
  GER_central_powers_tt:0 "§YAny non-aligned, historically allied nations will be invited to our faction.§!"
+ GER_is_south_french_states_tt:0 "is in Southern France"
  #Decisions
  GER_remilitarize_rhineland:0 "Remilitarize the Rhineland"
  not_too_much_soviet_influence_tt: "Less than 4 Soviet influence points"

@@ -14650,6 +14650,18 @@ country_event = { #Adriatic Sea Access
 			851 = {
 				add_claim_by = ITA 
 			}
+			665 = {
+				add_claim_by = ITA 
+			}	
+			458 = {
+				add_claim_by = ITA 
+			}
+			268 = {
+				add_claim_by = ITA 
+			}
+			269 = {
+				add_claim_by = ITA 
+			}											
 			1 = {
 				add_claim_by = ITA 
 				add_core_of = ITA
@@ -14732,6 +14744,18 @@ country_event = { #Adriatic Sea Access - Yes
 		851 = {
 			add_claim_by = ITA 
 		}
+		665 = {
+			add_claim_by = ITA 
+		}	
+		458 = {
+			add_claim_by = ITA 
+		}
+		268 = {
+			add_claim_by = ITA 
+		}
+		269 = {
+			add_claim_by = ITA 
+		}											
 		1 = {
 			add_claim_by = ITA 
 			add_core_of = ITA

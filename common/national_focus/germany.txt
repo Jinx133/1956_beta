@@ -10475,7 +10475,7 @@ focus_tree = {
 			is_subject = no
 		}
 		relative_position_id = GER_restore_tyrol
-		x = 1
+		x = 2
 		y = 1
 		ai_will_do = {
 			factor = 10
@@ -10585,7 +10585,7 @@ focus_tree = {
 			is_subject = no
 		}
 		relative_position_id = GER_restore_tyrol
-		x = -1
+		x = -2
 		y = 1
 		ai_will_do = {
 			factor = 10
@@ -10671,18 +10671,95 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		bypass = {
-			NOT = {
-				country_exists = SWI
-			}
-		}
+
 		completion_reward = {
 			YUG = { country_event = { id = ger.south_ger.7 hours = 6 } }			
 		}
 		search_filters = {
 			#
 		}
-	}						
+	}
+	focus = {
+		id = GER_revenge_for_napoleon
+		icon = GFX_focus_fra_le_deluge
+		cost = 5.00
+		prerequisite = {
+			focus = GER_restore_tyrol
+		}
+		available = {
+			is_subject = no
+			NOT = {
+				is_in_faction_with = FRA
+				is_in_faction_with = LUX
+				is_in_faction_with = BEL
+			}
+		}
+		relative_position_id = GER_restore_tyrol
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		bypass = {
+			NOT = {
+				country_exists = FRA
+			}
+		}
+		completion_reward = {
+			28 = { add_claim_by = GER }
+			965 = { add_claim_by = GER }
+			8 = { add_claim_by = GER }
+			create_wargoal = {
+				target = LUX 
+				type = take_claimed_state
+			}
+			create_wargoal = {
+				target = BEL 
+				type = take_claimed_state
+			}
+			create_wargoal = {
+				target = FRA 
+				type = take_claimed_state
+			}						
+		
+		}
+		search_filters = {
+			#
+		}
+	}
+	
+	focus = {
+		id = GER_establish_south_french_protectorate
+		icon = GFX_focus_fra_le_deluge
+		cost = 5.00
+		prerequisite = {
+			focus = GER_revenge_for_napoleon
+		}
+		available = {
+			is_subject = no
+			any_state = {
+				custom_trigger_tooltip = {
+					limit = {
+						region = 20
+					}
+					tooltip = GER_is_south_french_states_tt
+					is_owned_and_controlled_by = GER
+				}
+			}
+		}
+		relative_position_id = GER_revenge_for_napoleon
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+
+		}
+		search_filters = {
+			#
+		}
+	}								
 	focus = {
 		id = GER_finland_friend
 		icon = GFX_goal_generic_befriend_finland
